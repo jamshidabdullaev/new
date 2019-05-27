@@ -1,0 +1,22 @@
+{%extends "password_project_app/base.html"%}
+{%load staticfiles%}
+{%block body_block%}
+    <div class="jumbotron">
+      {% if registered %}
+            <h1>Thank You For Registering!</h1>
+      {% else %}
+            <h1>Register Here!</h1>
+            <h3>Fill Out The Form:</h3>
+
+      <form method="post" enctype="multipart/form-data">
+              {{ user_form.as_p }}
+              {{ profile_form.as_p }}
+              {% csrf_token %}
+              <input type="submit" name="" value="Register">
+      </form>
+
+      {%endif%}
+    </div>
+
+
+    {%endblock%}
